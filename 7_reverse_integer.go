@@ -1,8 +1,11 @@
 package main
 
 import "fmt"
-
+import "math"
 func reverse(x int) int{
+	if x > math.MaxInt32 || x < math.MinInt32{
+		return 0
+	}
 	signed := 1
 	if x < 0{
 		signed = -1
@@ -13,6 +16,10 @@ func reverse(x int) int{
 		res = 10 * res + x % 10
 		x = x/10
 	}
+
+	if signed * res > math.MaxInt32 || x < math.MinInt32{
+		return 0
+	}
 	return signed*res
 }
 
@@ -20,4 +27,5 @@ func main(){
 	fmt.Println(reverse(120))
 	fmt.Println(reverse(123))
 	fmt.Println(reverse(-123))
+	fmt.Println(reverse(1534236469))
 }
