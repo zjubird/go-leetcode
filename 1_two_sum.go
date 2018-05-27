@@ -1,15 +1,15 @@
 package main
 import "fmt"
 
-func twoSum(s []int, target int) (int, int){
+func twoSum(s []int, target int) []int {
 	for i := 0; i < len(s); i++ {
 		for j := i + 1; j < len(s); j++{
 			if s[i] + s[j] == target{
-				return i,j
+				return []int{i,j}
 			}
 		}
 	}
-	return 0,0
+	return []int{} 
 }
 
 func main(){
