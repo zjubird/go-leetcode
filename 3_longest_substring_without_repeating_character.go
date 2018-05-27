@@ -20,7 +20,7 @@ func lengthOfLongestSubstring(s string) int {
 	ans := 0
 	for i,j := 0, 0; j < len(s); j++{
 		index, ok := characterIndexMap[s[j]]
-		if ok{
+		if ok && index >= i{
 			i = index + 1	
 		}else{
 			ans = max(ans, j - i + 1)
@@ -34,4 +34,5 @@ func main(){
 	fmt.Println(lengthOfLongestSubstring("abcabcbb"))
 	fmt.Println(lengthOfLongestSubstring("bbbbb"))
 	fmt.Println(lengthOfLongestSubstring("pwwkew"))
+	fmt.Println(lengthOfLongestSubstring("tmmzuxt"))
 }
